@@ -28,10 +28,25 @@
 
 <script>
 export default {
-        
+    
+        name:'',
+
         data(){
             return{
+                title:'',
                 services: []
+            }
+        },
+        
+        head(){
+            return{
+                title: this.title,
+                meta:[
+                    {hid: 'description', name: 'description', content: 'Minha descrição de serviços'}
+                ],
+                bodyAttrs:{
+                    class: 'bg-gray-400'
+                }
             }
         },
 
@@ -48,5 +63,19 @@ export default {
  */
                 console.log(this);
         },
+        
+        
+        created(){
+            this.getTitle()
+        },
+
+        methods:{
+            getTitle(){
+                setTimeout(()=>{
+                    this.title ='Serviços'
+                },3000)
+            }
+        },
+
 }   
 </script>
